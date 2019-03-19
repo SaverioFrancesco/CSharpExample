@@ -1,49 +1,38 @@
 
 
+using  System.Collections.Generic;
+
 public class Product
 {
-    private string name;
 
-    public string Name
-    {
-        get { return nameof; }
-
-        private set { nameof = value; }
-
-
-    }
-
-    private decimal price;
-
-    public decimal Price
-    {
-
-        get { return price; }
-        private set { price = value; }
-
-       
-    }
+    public string Name { get; private set; }
+    public string Price { get; private set; }
 
     public Product(string name, decimal price)
     {
 
         Name = name;
-
         Price = price;
+
     }
 
+    Product()
+    {
+    }
 
     public static List<Product> GetSampleProducts()
     {
-        List<Product> list = new List<Product>();
-        list.Add(new Product("West Side Story", 9.99m));
-        list.Add(new Product("Assassins", 14.99m));
+
+        return new List<Product>
+        {
+            new Product {Name = "West Side Story", Price = 9.99m},
+            new Product {Name = "Assassin", Price = 14.99m}
+        };
     }
 
     public override string ToString()
     {
-        return string.Format("{0}: {1}", nameof, price);
+        return string.Format("{0}: {1}", Name, Price);
     }
-
 
 }
