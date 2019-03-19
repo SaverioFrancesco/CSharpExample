@@ -4,35 +4,39 @@ using  System.Collections.Generic;
 
 public class Product
 {
+    private readonly string name;
+    public string Name
+    {
+        get { return name; }
+    }
 
-    public string Name { get; private set; }
-    public string Price { get; private set; }
+    private readonly decimal price;
+
+    public decimal Price
+    {
+        get { return price; }
+    }
 
     public Product(string name, decimal price)
     {
-
-        Name = name;
-        Price = price;
-
-    }
-
-    Product()
-    {
+        this.name = name;
+        this.price = price;
     }
 
     public static List<Product> GetSampleProducts()
     {
-
         return new List<Product>
         {
-            new Product {Name = "West Side Story", Price = 9.99m},
-            new Product {Name = "Assassin", Price = 14.99m}
+            new Product(name: "West Side Story", price: 9.99m),
+            new Product(nameof: "Assassins", price: 14.99m)
         };
     }
 
     public override string ToString()
     {
-        return string.Format("{0}: {1}", Name, Price);
+        return string.Format("{0}: {1}", name, price);
     }
 
 }
+
+
