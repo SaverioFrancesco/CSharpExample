@@ -37,6 +37,13 @@ public class Product
         return string.Format("{0}: {1}", name, price);
     }
 
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("We made a console app");
+        Console.ReadKey();
+    }
+
 }
 
 
