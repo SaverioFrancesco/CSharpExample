@@ -15,7 +15,8 @@ namespace MainExample
         {
 
             Console.WriteLine("We made a console app");
-            Console.ReadKey();
+           
+
             List<Product> products = Product.GetSampleProducts();
             foreach (Product product in products.Where(p => p.Price != null))
             {
@@ -34,7 +35,7 @@ public class Product
     public string Name { get { return name; } }
     readonly decimal? price;
     public decimal? Price { get { return price; } }
-    public Product(string name, decimal price)
+    public Product(string name, decimal? price = null)
     {
         this.name = name;
         this.price = price;
