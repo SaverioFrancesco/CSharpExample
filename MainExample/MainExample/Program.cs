@@ -23,7 +23,6 @@ namespace MainExample
                 Console.WriteLine(suplier.Name);
             }
 
-
             XDocument doc = XDocument.Load("C:\\Users\\francescosaverio.com\\Desktop\\Csharp\\CSharpExample\\MainExample\\MainExample\\data.xml");
          
 
@@ -45,13 +44,22 @@ namespace MainExample
                     v.SupplierName, v.ProductName);
             }
 
-
-
             Console.WriteLine("LINQ end displaying");
+
             Console.ReadKey();
+            filtered = from p in products
+                join s in suppliers
+                    on p.SupplierID equals s.SupplierID
+                       where p.Price > 10
+                orderby s.Name, p.Name
+                select new { SupplierName = s.Name, ProductName = p.Name };
+            foreach (var v in filtered)
+            {
+                Console.WriteLine("Supplier={0}; Product={1}",
+                    v.SupplierName, v.ProductName);
+            }
 
-
-
+            Console.ReadKey();
             
         }
     }
@@ -90,7 +98,7 @@ public class Product
     readonly decimal? price;
     public decimal? Price { get { return price; } }
     readonly decimal? supplierid;
-    public decimal? SupplierID { get; private set; }
+    public decimal? SupplierID { get { return supplierid; } }
 
     public Product(string name, decimal? supplierid, decimal? price = null)
     {
