@@ -15,7 +15,9 @@ namespace MainExample
         {
 
             Console.WriteLine("We made a console app");
-            Console.WriteLine(value: Product.GetSampleProducts()[0].ToString());
+            List<Product> products = Product.GetSampleProducts();
+            products.FindAll(delegate (Product p) { return p.Price > 10; })
+                .ForEach(Console.WriteLine);
             Console.ReadKey();
 
         }
