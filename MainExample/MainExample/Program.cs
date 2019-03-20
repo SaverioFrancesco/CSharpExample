@@ -41,9 +41,10 @@ public class Product
         return new List<Product>
         {
             new Product(name: "West Side Story", price: 9.99m),
-            new Product(name: "Assassins", price: 14.99m),
+            new Product(name: "Assassins", price: 04.99m),
             new Product(name: "Frogs", price: 13.99m),
-            new Product(name: "Sweeney Todd", price: 10.99m)
+            new Product(name: "Sweeney Todd", price: 19.99m),
+            new Product(name: "Esteldor", price: 10.99m)
         };
     }
     public override string ToString()
